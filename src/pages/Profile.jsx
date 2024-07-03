@@ -12,7 +12,7 @@ const Profile = () => {
     const {user} = useAuthContext()
        const fetchBlogs = async () => {
         try{
-          const res  = await axios.get(`http://localhost:5000/user/get-posts/${user.user._id}`,{
+          const res  = await axios.get(`https://bookspot-server.onrender.com/user/get-posts/${user.user._id}`,{
             headers:{
               Authorization: `Bearer ${user.token}` 
             }
@@ -28,7 +28,7 @@ const Profile = () => {
 
       const deletePost = async (id) => {
         try{
-          const res  = await axios.delete(`http://localhost:5000/user/delete-post/${id}`,{
+          const res  = await axios.delete(`https://bookspot-server.onrender.com/user/delete-post/${id}`,{
             headers:{
               Authorization: `Bearer ${user.token}` 
             }

@@ -16,10 +16,9 @@ const SignUp = () => {
   const onSubmit = async (data) => {
     console.log(data);
     try {
-      const res = await axios.post("http://localhost:5000/auth/register", data);
+      const res = await axios.post("https://bookspot-server.onrender.com/auth/register", data);
       console.log(res)
-      // login(res.data)
-      navigate("/")
+        navigate("/")
   
     } catch (err) {
       console.log(err);
@@ -29,7 +28,7 @@ const SignUp = () => {
 
   const handleGoogleLogin = async (data) =>{
     try{
-    const res =   await axios.post("http://localhost:5000/auth/google-auth", {credential: data.credential})
+    const res =   await axios.post("https://bookspot-server.onrender.com/auth/google-auth", {credential: data.credential})
     if(res.data){
         login(res.data)
       

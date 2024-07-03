@@ -24,7 +24,7 @@ const EditPost = () => {
 const fetchPost = async() => {
 
     try{
-        const res= await axios.get(`http://localhost:5000/user/get-post/${postId}`,{
+        const res= await axios.get(`https://bookspot-server.onrender.com/user/get-post/${postId}`,{
             headers:{
               Authorization: `Bearer ${user.token}` 
             }
@@ -75,7 +75,7 @@ const fetchPost = async() => {
 
  console.log(data);
       try {
-        const response = await axios.patch("http://localhost:5000/user/update-post",data,{
+        const response = await axios.patch("https://bookspot-server.onrender.com/user/update-post",data,{
             headers:{
               Authorization: `Bearer ${user.token}` 
             }

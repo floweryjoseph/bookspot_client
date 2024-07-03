@@ -52,7 +52,7 @@ const CreatePost = () => {
 
       try {
         const response = await axios.post(
-          "http://localhost:5000/user/create-post",data,{
+          "https://bookspot-server.onrender.com/user/create-post",data,{
             headers:{
               Authorization: `Bearer ${user.token}` 
             }

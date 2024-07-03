@@ -15,7 +15,7 @@ const LogIn = () => {
   const onSubmit = async (data) => {
  
     try {
-      const res = await axios.post("http://localhost:5000/auth/login", data);
+      const res = await axios.post("https://bookspot-server.onrender.com/auth/login", data);
           if (res.data) {
             login(res.data)
              }
@@ -27,7 +27,7 @@ const LogIn = () => {
 
   const handleGoogleLogin = async (data) => {
     try{
-    const res = await axios.post("http://localhost:5000/auth/google-auth", {
+    const res = await axios.post("https://bookspot-server.onrender.com/auth/google-auth", {
       credential: data.credential,
     });
   
