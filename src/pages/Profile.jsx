@@ -8,7 +8,7 @@ const Profile = () => {
 
     const [collapsedPost,setCollapsedPost]=useState(null)
     const [blogs, setBlogs] = useState([])
-    
+   
     const {user} = useAuthContext()
        const fetchBlogs = async () => {
         try{
@@ -50,7 +50,7 @@ const Profile = () => {
         <div className='w-full min-h-screen bg-gray-950 px-12 pt-20 text-white'>
             <div className='w-full bg-gray-800 my-5  text-orange-600 h-28 flex flex-col items-center justify-evenly'>
                 <h1 className='text-3xl font-bold'>{user.user.username}</h1>
-                <p className='text-lg'><span className='text-xl font-bold mr-2'>{blogs.length}</span>Posts</p>
+                <p className='text-lg'><span className='text-xl font-bold mr-2'>{blogs.length}</span> {blogs.length ===1 ? 'Post':'Posts'}</p>
             </div>
             <div className='w-full flex flex-col gap-5 items-center '>
                 {blogs.map((blog, i) => (
@@ -59,7 +59,7 @@ const Profile = () => {
                         <div className=' w-2/3 flex flex-col gap-5 p-10'>
                             <ChevronDown onClick={()=>setCollapsedPost(collapsedPost ===i ? null : i)} className={`ml-auto cursor-pointer h-10 w-10 absolute top-5 ${i % 2 === 0 ? "right-5" : "left-5"} ${collapsedPost ===i && "rotate-180"}`}/>
                             <h1 className='text-2xl font-bold uppercase ' >{blog.author}</h1>
-                            <p hidden={collapsedPost !==i} className='text-xl font-thin'>{blog.about}</p>
+                            <p hidden={collapsedPost !==i} className='text-xl font-thin text-orange-300'>{blog.about}</p>
                             <p hidden={collapsedPost !==i}>{blog.content}</p>
                             <p className='italic text-orange-700'>posted by : <span className='font-bold capitalize'>{user.user.username}</span></p>
                                 <div className='flex gap-5'>
@@ -74,7 +74,7 @@ const Profile = () => {
                             </div>
                             <div className='flex gap-5 '>
                               <Link to={`/edit-post/${blog._id}`}>
-                                <button type="submit" className="w-full py-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-white font-medium rounded-lg text-sm px-10  text-center"><Edit/> Edit Post</button>
+                                <button type="submit" className="w-fit py-2 px-5 flex items-center justify-center gap-2 text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-white font-medium rounded-lg text-sm  text-center"><Edit/> Edit Post</button>
                                 </Link>
                                 <button onClick={()=>deletePost(blog._id)} type="submit" className="w-fit px-10 py-2 flex items-center justify-center gap-2 text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm  text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"><Trash/> Delete Post</button>
                             </div>
