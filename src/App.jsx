@@ -2,6 +2,8 @@ import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import { useAuthContext } from "./context/AuthContext";
+import LoadingPage from "./components/LoadingPage";
+
 
 const Home = lazy(() => import("./pages/Home"));
 const SignUp = lazy(() => import("./pages/Signup"));
@@ -41,7 +43,11 @@ function App() {
     );
   }
 
-  return <>{routes}</>;
+  return <>
+  <Suspense fallback={<LoadingPage/>}>
+  {routes}
+  </Suspense>
+  </>;
 }
 
 export default App;
