@@ -93,7 +93,7 @@ const fetchPost = async() => {
 
 
     return (
-      <div className="w-full min-h-screen px-10 flex bg-gray-800 pt-24 text-white">
+      <div className="w-full min-h-screen px-10 flex bg-gray-950 pt-24 text-white">
       {
         formState.isSubmitting &&
         <div className="absolute w-full h-screen flex justify-center items-center top-0 left-0 bg-[#00000050]">
