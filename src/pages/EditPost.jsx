@@ -201,8 +201,8 @@ const fetchPost = async() => {
                 value:true,
               message:"Please enter something about book"
               },maxLength:{
-                value:500,
-                message:"Must not exceed 500 characters"
+                value:600,
+                message:"Must not exceed 600 characters"
 
               }
              })}

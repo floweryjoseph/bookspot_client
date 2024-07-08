@@ -13,8 +13,7 @@ const SignUp = () => {
   const form = useForm();
   const { register, handleSubmit, formState, getValues } = form;
 
-  const onSubmit = async (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {   
     try {
       const res = await axios.post("https://bookspot-server.onrender.com/auth/register", data);
       console.log(res)
