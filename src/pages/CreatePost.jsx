@@ -5,25 +5,15 @@ import { useNavigate } from "react-router-dom";
 import {useForm} from 'react-hook-form'
 import { useAuthContext } from "../context/AuthContext";
 import Rating from '@mui/material/Rating'; 
-
-
-
 const CreatePost = () => {
-
-
   const form = useForm();
   const {register, handleSubmit, formState} = form;
-
   const [cover, setCover] = useState(null);
   const [errMsg, setErrMsg] = useState("")
-  const [rating, setRating] = useState(0)
-   
+  const [rating, setRating] = useState(0)   
   const navigate = useNavigate();
-
   const {user}= useAuthContext()
-
   const onSubmit = async (data) => {
-
     console.log(data)
     if(!cover){
       setErrMsg("Please add an image")
@@ -56,14 +46,11 @@ const CreatePost = () => {
             headers:{
               Authorization: `Bearer ${user.token}` 
             }
-            })
-      
-        console.log(response.data);
-        
+            }) 
+           
         navigate("/");
       } catch (err) {
-        console.log(err);
-       
+        console.log(err);       
       }
     } 
   };
@@ -104,15 +91,13 @@ const CreatePost = () => {
               },maxLength:{
                 value:60,
                 message:"Must not exceed 60 characters"
-
               }
              })}
               type="text"
               id="book"
               className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Book Name"
-              required=""
-              
+              required=""              
             />
            <p className="text-red-500 text-sm mt-2">{formState.errors.book?.message}</p>
           </div>
@@ -151,18 +136,12 @@ const CreatePost = () => {
               id="cover"
               placeholder="image-file"
               className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              required=""
-             
+              required=""             
             />
             {!cover && errMsg && <p className="text-red-500 text-sm mt-2">{errMsg}</p>}
           </div>
           <div>
-            {/* <label
-              htmlFor="about"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
-              About
-            </label> */}
+           
             <textarea
             {...register("about",{
               required:{
@@ -184,12 +163,7 @@ const CreatePost = () => {
             <p className="text-red-500 text-sm mt-2">{formState.errors.about?.message}</p>
           </div>
           <div>
-            {/* <label
-              htmlFor="review"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
-              Review
-            </label> */}
+           
             <textarea
              {...register("review",{
               required:{

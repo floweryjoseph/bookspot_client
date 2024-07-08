@@ -83,12 +83,12 @@ const Post = ({ blog, i }) => {
 
         <div className='flex gap-5 mt-3'>
           <div className='flex items-center gap-2 cursor-pointer'>
-            <ThumbsUp onClick={handleLikePost} />
+            <ThumbsUp className={likes.includes(user.user._id) ? "text-red-500" : ""} onClick={handleLikePost}  />
             <p className='text-sm'>{likes.length}</p>
           </div>
-          <div className='flex items-center gap-2 cursor-pointer'>
-            <ThumbsDown onClick={handleDislikePost} className='mt-2' />
-            <p className='text-sm'>{dislikes.length}</p>
+          <div className={`flex items-center gap-2 cursor-pointer mt-2 ${dislikes.includes(user.user._id) ? "text-red-500" : ""}`}>
+            <ThumbsDown  onClick={handleDislikePost} />
+            <p className='text-sm mb-2'>{dislikes.length}</p>
           </div>
         </div>
       </div>

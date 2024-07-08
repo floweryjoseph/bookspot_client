@@ -98,7 +98,7 @@ const fetchPost = async() => {
         formState.isSubmitting &&
         <div className="absolute w-full h-screen flex justify-center items-center top-0 left-0 bg-[#00000050]">
         <LoaderIcon className="h-28 w-28 animate-spin" />
-      </div>
+      </div>  
       }
         <div className="w-1/2 flex justify-center items-center pr-10">
           {!cover ? (
