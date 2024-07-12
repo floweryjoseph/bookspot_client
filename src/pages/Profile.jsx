@@ -55,9 +55,9 @@ const Profile = () => {
             <div className='w-full flex flex-col gap-5 items-center '>
                 {blogs.map((blog, i) => (
                     <div key={i} className={`relative w-full flex flex-col justify-between items-center gap-10 border-2 bg-gray-800/40 border-black/30 shadow-md p-10 ${i % 2 !== 0 ? "md:flex-row-reverse" : "md:flex-row"}`}>
-                        <img src={blog.cover} alt="" className='w-full  md:w-1/5' />
+                        <img src={blog.cover} alt="" className='w-full md:w-1/5' />
                         <div className='w-full md:w-2/3 flex flex-col gap-5 md:p-10'>
-                            <ChevronDown onClick={()=>setCollapsedPost(collapsedPost ===i ? null : i)} className={`cursor-pointer md:h-10 md:w-10 h-8 w-8 absolute right-5 md:top-5 ${i % 2 === 0 ? "md:right-5" : "md:left-5"} ${collapsedPost === i && "rotate-180"}`}/>
+                            <ChevronDown onClick={()=>setCollapsedPost(collapsedPost ===i ? null : i)} className={`cursor-pointer md:h-10 md:w-10 h-7 w-7 absolute right-5 md:top-5 ${i % 2 === 0 ? "md:right-5" : "md:left-5"} ${collapsedPost === i && "rotate-180"}`}/>
                             <h1 className='text-xl md:text-2xl font-bold uppercase' >{blog.author}</h1>
                             <p hidden={collapsedPost !==i} className='text-md md:text-xl font-thin text-orange-300'>{blog.about}</p>
                             <p hidden={collapsedPost !==i}>{blog.content}</p>

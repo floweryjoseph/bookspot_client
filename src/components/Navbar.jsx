@@ -27,7 +27,7 @@ const Navbar = () => {
       </div>
 
       {toggleBtn && (
-        <div className='md:hidden absolute top-16 right-10 w-full bg-white dark:bg-gray-700'>
+        <div className='md:hidden absolute top-16 right-0 w-full bg-white dark:bg-gray-700'>
           <ul className='flex flex-col items-center space-y-5 py-2'>
             <Link to="/" className='hover:text-orange-600' onClick={() => setToggleBtn(false)}>Home</Link>
             <Link to="/create-post" className='hover:text-orange-600' onClick={() => setToggleBtn(false)}>Create Post</Link>
