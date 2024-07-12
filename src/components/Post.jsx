@@ -53,14 +53,14 @@ const Post = ({ blog, i }) => {
 
 
   return (
-    <div className={`w-full flex justify-between items-center shadow-md p-10 ${i % 2 !== 0 ? "flex-row-reverse bg-gradient-to-r from-gray-900 to-transparent" : "flex-row bg-gradient-to-r from-transparent to-gray-900"}`}>
-      <img src={blog.cover} alt="" className='w-1/4' />
-      <div className='w-2/3 flex flex-col gap-5 p-5'>
-        <h1 className='text-3xl font-bold uppercase text-orange-500'>{blog.book}</h1>
-        <p className='text-2xl font-bold text-orange-400'><span className='font-semibold'>Author: </span> {blog.author}</p>
-        <p className='text-xl font-semibold text-orange-600'>{blog.about}</p>
-        <p className='text-orange-700'>{blog.review}</p>
-        <p className='italic text-orange-400'>posted by: <span className='font-bold capitalize text-white'>{blog.userId?.username}</span></p>
+    <div className={`w-full flex flex-col md:flex-row justify-between items-center shadow-md p-5 md:p-10 ${i % 2 !== 0 ? "md:flex-row-reverse bg-gradient-to-r from-gray-900 to-transparent" : "md:flex-row bg-gradient-to-r from-transparent to-gray-900"}`}>
+      <img src={blog.cover} alt="" className='w-full md:w-1/4 mb-4 md:mb-0' />
+      <div className='w-full md:w-2/3 flex flex-col gap-5 p-5'>
+        <h1 className='text-lg md:text-3xl font-bold uppercase text-orange-500'>{blog.book}</h1>
+        <p className='text-md md:text-2xl font-bold text-orange-400'><span className='font-semibold'>Author: </span> {blog.author}</p>
+        <p className='text-md md:text-xl font-semibold text-orange-600'>{blog.about}</p>
+        <p className='text-sm md:text-md text-orange-700'>{blog.review}</p>
+        <p className='italic text-sm md:text-md text-orange-400'>posted by: <span className='font-bold capitalize text-white'>{blog.userId?.username}</span></p>
 
         <div className='flex gap-5 items-center'>
           <Rating

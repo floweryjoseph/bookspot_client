@@ -93,14 +93,14 @@ const fetchPost = async() => {
 
 
     return (
-      <div className="w-full min-h-screen px-10 flex bg-gray-950 pt-24 text-white">
+      <div className="w-full min-h-screen px-8 md:px-14 flex flex-col md:flex-row gap-10 justify-center items-center bg-gray-950 pt-20 md:pt-0 text-white">
       {
         formState.isSubmitting &&
         <div className="absolute w-full h-screen flex justify-center items-center top-0 left-0 bg-[#00000050]">
         <LoaderIcon className="h-28 w-28 animate-spin" />
       </div>  
       }
-        <div className="w-1/2 flex justify-center items-center pr-10">
+        <div className="w-full md:w-1/2 flex justify-center items-center">
           {!cover ? (
             <CameraOffIcon className="h-36 w-36 opacity-25" />
           ) : (
@@ -114,7 +114,7 @@ const fetchPost = async() => {
           )}
         </div>
         <form
-          className="space-y-4 md:space-y-6 w-1/2"
+          className="space-y-3 md:space-y-4 mt-12 w-full md:w-1/3"
           action="#"
           onSubmit={handleSubmit(onSubmit)}
         >

@@ -29,8 +29,7 @@ const SignUp = () => {
     try{
     const res =   await axios.post("https://bookspot-server.onrender.com/auth/google-auth", {credential: data.credential})
     if(res.data){
-        login(res.data)
-      
+        login(res.data)      
     }
   }catch{
     toast("Could not Authenticate with Google")

@@ -13,6 +13,7 @@ const CreatePost = () => {
   const [rating, setRating] = useState(0)   
   const navigate = useNavigate();
   const {user}= useAuthContext()
+
   const onSubmit = async (data) => {
     console.log(data)
     if(!cover){
@@ -35,7 +36,6 @@ const CreatePost = () => {
     }
 
     if (res.data) {
-
      data.cover = res.data.secure_url
      data.rating = rating; 
      console.log(data)
@@ -56,14 +56,14 @@ const CreatePost = () => {
   };
 
     return (
-      <div className="w-full min-h-screen px-10 flex bg-gray-950 pt-24 text-white">
+      <div className="w-full min-h-screen px-8 md:px-10 flex flex-col md:flex-row  justify-center items-center bg-gray-950 pt-24 md:pt-0 text-white">
       {
         formState.isSubmitting &&
         <div className="absolute w-full h-screen flex justify-center items-center top-0 left-0 bg-[#00000050]">
         <LoaderIcon className="h-28 w-28 animate-spin" />
       </div>
       }
-        <div className="w-1/2 flex justify-center items-center pr-10">
+        <div className="w-full md:w-1/2 flex justify-center items-center">
           {!cover ? (
             <CameraOffIcon className="h-36 w-36 opacity-25" />
           ) : (
@@ -71,18 +71,22 @@ const CreatePost = () => {
               <img
                 src={URL.createObjectURL(cover)}
                 alt=""
-                className="max-h-screen"
+                className="max-h-96 object-cover"
               />
             </div>
           )}
         </div>
         <form
-          className="space-y-4 md:space-y-6 w-1/3"
-          action="#"
+          className="space-y-3 mt-8 w-full md:w-1/3"
           onSubmit={handleSubmit(onSubmit)}
         >
           <div>
-           
+          <label
+              htmlFor="book"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Book Name
+            </label>
             <input
              {...register("book",{
               required:{
@@ -102,7 +106,12 @@ const CreatePost = () => {
            <p className="text-red-500 text-sm mt-2">{formState.errors.book?.message}</p>
           </div>
           <div>
-           
+          <label
+              htmlFor="author"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Author
+            </label>
             <input
               {...register("author",{
                 required:{
@@ -141,7 +150,12 @@ const CreatePost = () => {
             {!cover && errMsg && <p className="text-red-500 text-sm mt-2">{errMsg}</p>}
           </div>
           <div>
-           
+          <label
+              htmlFor="about"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              About
+            </label>
             <textarea
             {...register("about",{
               required:{
@@ -163,7 +177,12 @@ const CreatePost = () => {
             <p className="text-red-500 text-sm mt-2">{formState.errors.about?.message}</p>
           </div>
           <div>
-           
+          <label
+              htmlFor="review"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Review
+            </label>
             <textarea
              {...register("review",{
               required:{
