@@ -58,7 +58,7 @@ const Post = ({ blog, i }) => {
       <div className='w-full text-justify md:w-2/3 flex flex-col gap-5 p-5'>
         <h1 className='text-lg md:text-3xl font-bold uppercase text-orange-500'>{blog.book}</h1>
         <p className='text-lg md:text-2xl font-bold text-yellow-400'><span className='font-semibold'>Author: </span> {blog.author}</p>
-        <p className='text-md md:text-xl font-semibold text-yellow-600'>{blog.about}</p>
+        <p className='text-md md:text-xl font-semibold text-yellow-600'><span className='font-semibold'>Genre: </span>{blog.genre}</p>
         <p className='text-sm md:text-md text-orange-500'>{blog.review}</p>
         <p className='italic text-sm md:text-md text-yellow-400'>posted by: <span className='font-bold capitalize text-yellow-200'>{blog.userId?.username}</span></p>
 
@@ -83,10 +83,10 @@ const Post = ({ blog, i }) => {
 
         <div className='flex gap-5 mt-3'>
           <div className='flex items-center gap-2 cursor-pointer'>
-            <ThumbsUp className={likes.includes(user.user._id) ? "text-red-500" : ""} onClick={handleLikePost}  />
+            <ThumbsUp className={likes.includes(user.user._id) ? "text-orange-700" : ""} onClick={handleLikePost}  />
             <p className='text-sm'>{likes.length}</p>
           </div>
-          <div className={`flex items-center gap-2 cursor-pointer mt-2 ${dislikes.includes(user.user._id) ? "text-red-500" : ""}`}>
+          <div className={`flex items-center gap-2 cursor-pointer mt-2 ${dislikes.includes(user.user._id) ? "text-orange-700" : ""}`}>
             <ThumbsDown  onClick={handleDislikePost} />
             <p className='text-sm mb-2'>{dislikes.length}</p>
           </div>

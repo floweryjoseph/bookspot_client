@@ -77,7 +77,7 @@ const CreatePost = () => {
           )}
         </div>
         <form
-          className="space-y-3 py-8 w-full md:w-1/3"
+          className="space-y-3 mt-8 py-8 w-full md:w-1/3"
           onSubmit={handleSubmit(onSubmit)}
         >
           <div>
@@ -151,30 +151,30 @@ const CreatePost = () => {
           </div>
           <div>
           <label
-              htmlFor="about"
+              htmlFor="genre"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              About
+              Genre
             </label>
-            <textarea
-            {...register("about",{
+            <input
+            {...register("genre",{
               required:{
                 value:true,
-              message:"Please enter Something About Book"
+              message:"Please enter the genre of the Book"
               },maxLength:{
-                value:600,
-                message:"Must not exceed 600 characters"
+                value:100,
+                message:"Must not exceed 100 characters"
 
               }
              })}
               type="text"
            
-              id="about"
-              placeholder="About"
+              id="genre"
+              placeholder="Genre of the book"
               className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required=""
             />
-            <p className="text-red-500 text-sm mt-2">{formState.errors.about?.message}</p>
+            <p className="text-red-500 text-sm mt-2">{formState.errors.genre?.message}</p>
           </div>
           <div>
           <label

@@ -33,7 +33,7 @@ const fetchPost = async() => {
             const post = res.data.post
             setValue("book",post.book);
             setValue("author",post.author);
-            setValue("about",post.about);
+            setValue("genre",post.genre);
             setValue("review",post.review);
             setValue("rating",post.rating);
             setCover(post.cover);
@@ -93,14 +93,14 @@ const fetchPost = async() => {
 
 
     return (
-      <div className="w-full min-h-screen px-8 md:px-14 flex flex-col md:flex-row gap-10 justify-center items-center bg-gray-950 pt-20 md:pt-0 text-white">
+      <div className="w-full min-h-screen px-8 md:px-10 flex flex-col md:flex-row  justify-center items-center bg-gray-950 pt-20 md:pt-10 text-white">
       {
         formState.isSubmitting &&
         <div className="absolute w-full h-screen flex justify-center items-center top-0 left-0 bg-[#00000050]">
         <LoaderIcon className="h-28 w-28 animate-spin" />
       </div>  
       }
-        <div className="w-full md:w-1/2 flex justify-center items-center">
+        <div className="w-full md:w-[50%] flex justify-center items-center">
           {!cover ? (
             <CameraOffIcon className="h-36 w-36 opacity-25" />
           ) : (
@@ -108,13 +108,13 @@ const fetchPost = async() => {
               <img
                 src={typeof cover === 'string'? cover : URL.createObjectURL(cover)}
                 alt=""
-                className="max-h-screen"
+                className="max-h-96 object-fit"
               />
             </div>
           )}
         </div>
         <form
-          className="space-y-3 md:space-y-4 py-10 w-full md:w-1/3"
+          className="space-y-2 md:space-y-3 py-10 w-full md:w-1/3"
           action="#"
           onSubmit={handleSubmit(onSubmit)}
         >
@@ -190,30 +190,30 @@ const fetchPost = async() => {
           </div>
           <div>
             <label
-              htmlFor="about"
+              htmlFor="genre"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              About
+              Genre
             </label>
-            <textarea
-            {...register("about",{
+            <input
+            {...register("genre",{
               required:{
                 value:true,
-              message:"Please enter something about book"
+              message:"Please enter the genre of book"
               },maxLength:{
-                value:600,
-                message:"Must not exceed 600 characters"
+                value:100,
+                message:"Must not exceed 100 characters"
 
               }
              })}
               type="text"
            
-              id="about"
-              placeholder="About Book"
+              id="genre"
+              placeholder="Genre of the Book"
               className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required=""
             />
-            <p className="text-red-500 text-sm mt-2">{formState.errors.about?.message}</p>
+            <p className="text-red-500 text-sm mt-2">{formState.errors.genre?.message}</p>
           </div>
           <div>
             <label

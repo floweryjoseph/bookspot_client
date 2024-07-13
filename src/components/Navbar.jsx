@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <div className='w-full z-50 h-16 fixed border-b-1 bg-gray-900 top-0 left-0 flex text-gray-200 justify-between items-center px-10'>
       <h1 className='text-2xl text-white cursor-pointer font-extrabold'>
-        Book<span className='text-red-600'>Spot</span>
+        Book<span className='text-orange-700'>Spot</span>
       </h1>
 
       <ul className='hidden md:flex space-x-5 items-center'>
@@ -27,7 +27,7 @@ const Navbar = () => {
       </div>
 
       {toggleBtn && (
-        <div className='md:hidden absolute top-16 right-0 w-full bg-white dark:bg-gray-700'>
+        <div className='md:hidden absolute top-16 right-0 w-full bg-gray-700'>
           <ul className='flex flex-col items-center space-y-5 py-2'>
             <Link to="/" className='hover:text-orange-600' onClick={() => setToggleBtn(false)}>Home</Link>
             <Link to="/create-post" className='hover:text-orange-600' onClick={() => setToggleBtn(false)}>Create Post</Link>
