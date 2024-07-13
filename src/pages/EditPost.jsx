@@ -114,7 +114,7 @@ const fetchPost = async() => {
           )}
         </div>
         <form
-          className="space-y-3 md:space-y-4 mt-12 w-full md:w-1/3"
+          className="space-y-3 md:space-y-4 py-10 w-full md:w-1/3"
           action="#"
           onSubmit={handleSubmit(onSubmit)}
         >

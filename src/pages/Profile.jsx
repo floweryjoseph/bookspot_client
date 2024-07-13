@@ -58,7 +58,8 @@ const Profile = () => {
                         <img src={blog.cover} alt="" className='w-full md:w-1/5' />
                         <div className='w-full md:w-2/3 flex flex-col gap-5 md:p-10'>
                             <ChevronDown onClick={()=>setCollapsedPost(collapsedPost ===i ? null : i)} className={`cursor-pointer md:h-10 md:w-10 h-7 w-7 absolute right-5 md:top-5 ${i % 2 === 0 ? "md:right-5" : "md:left-5"} ${collapsedPost === i && "rotate-180"}`}/>
-                            <h1 className='text-xl md:text-2xl font-bold uppercase' >{blog.author}</h1>
+                            <h1 className='text-lg md:text-3xl font-bold uppercase text-orange-500'>{blog.book}</h1>
+                            <p className='text-lg md:text-2xl font-bold text-orange-400'><span className='font-semibold'>Author: </span> {blog.author}</p>
                             <p hidden={collapsedPost !==i} className='text-md md:text-xl font-thin text-justify text-orange-300'>{blog.about}</p>
                             <p hidden={collapsedPost !==i}>{blog.content}</p>
                             <p className='italic text-orange-700'>posted by : <span className='font-bold capitalize'>{user.user.username}</span></p>

@@ -77,7 +77,7 @@ const CreatePost = () => {
           )}
         </div>
         <form
-          className="space-y-3 mt-8 py-5 w-full md:w-1/3"
+          className="space-y-3 py-8 w-full md:w-1/3"
           onSubmit={handleSubmit(onSubmit)}
         >
           <div>
