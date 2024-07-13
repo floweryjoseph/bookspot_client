@@ -47,7 +47,7 @@ const Profile = () => {
 
     
     return (
-        <div className='w-full min-h-screen bg-gray-950 px-12 pt-20 text-white'>
+        <div className='w-full min-h-screen bg-gray-950 px-4 md:px-10 pt-20 text-white'>
             <div className='w-full bg-gray-800 my-5  text-orange-600 h-28 flex flex-col items-center justify-evenly'>
                 <h1 className='text-3xl font-bold'>{user.user.username}</h1>
                 <p className='text-lg'><span className='text-xl font-bold mr-2'>{blogs.length}</span> {blogs.length ===1 ? 'Post':'Posts'}</p>
@@ -59,7 +59,7 @@ const Profile = () => {
                         <div className='w-full md:w-2/3 flex flex-col gap-5 md:p-10'>
                             <ChevronDown onClick={()=>setCollapsedPost(collapsedPost ===i ? null : i)} className={`cursor-pointer md:h-10 md:w-10 h-7 w-7 absolute right-5 md:top-5 ${i % 2 === 0 ? "md:right-5" : "md:left-5"} ${collapsedPost === i && "rotate-180"}`}/>
                             <h1 className='text-xl md:text-2xl font-bold uppercase' >{blog.author}</h1>
-                            <p hidden={collapsedPost !==i} className='text-md md:text-xl font-thin text-orange-300'>{blog.about}</p>
+                            <p hidden={collapsedPost !==i} className='text-md md:text-xl font-thin text-justify text-orange-300'>{blog.about}</p>
                             <p hidden={collapsedPost !==i}>{blog.content}</p>
                             <p className='italic text-orange-700'>posted by : <span className='font-bold capitalize'>{user.user.username}</span></p>
                                 <div className='flex gap-5'>

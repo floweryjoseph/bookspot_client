@@ -55,7 +55,7 @@ const Post = ({ blog, i }) => {
   return (
     <div className={`w-full flex flex-col md:flex-row justify-between items-center shadow-md p-5 md:p-10 ${i % 2 !== 0 ? "md:flex-row-reverse bg-gradient-to-r from-gray-900 to-transparent" : "md:flex-row bg-gradient-to-r from-transparent to-gray-900"}`}>
       <img src={blog.cover} alt="" className='w-80 h-50 md:w-1/4 mb-4 md:mb-0' />
-      <div className='w-full md:w-2/3 flex flex-col gap-5 p-5'>
+      <div className='w-full px-14 text-justify md:w-2/3 flex flex-col gap-5 p-5'>
         <h1 className='text-lg md:text-3xl font-bold uppercase text-orange-500'>{blog.book}</h1>
         <p className='text-lg md:text-2xl font-bold text-yellow-400'><span className='font-semibold'>Author: </span> {blog.author}</p>
         <p className='text-md md:text-xl font-semibold text-yellow-600'>{blog.about}</p>
