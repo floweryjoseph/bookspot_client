@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <div className='w-full z-50 h-16 fixed border-b-1 bg-gray-900 top-0 left-0 flex text-gray-200 justify-between items-center px-10'>
       <h1 className='text-2xl text-white cursor-pointer font-extrabold'>
-        Book<span className='text-orange-700'>Spot</span>
+        Book<span className='text-orange-700 font-extrabold'>Spot</span>
       </h1>
 
       <ul className='hidden md:flex space-x-5 items-center'>

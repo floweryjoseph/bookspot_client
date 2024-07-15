@@ -99,7 +99,7 @@ const CreatePost = () => {
              })}
               type="text"
               id="book"
-              className="border  sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white"
+              className="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white"
               placeholder="Book Name"
               required=""              
             />
@@ -108,7 +108,7 @@ const CreatePost = () => {
           <div>
           <label
               htmlFor="author"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium  text-white"
             >
               Author
             </label>
@@ -124,8 +124,8 @@ const CreatePost = () => {
                 }
                })}
               type="text"
-              id="author"
-              className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              id="author"            
+              className="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white"
               placeholder="Author Name"
               required=""
             />
@@ -134,7 +134,7 @@ const CreatePost = () => {
           <div>
             <label
               htmlFor="cover"
-              className="block mb-2 top-5 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 top-5 text-sm font-medium text-white"
             >
               Cover Page
             </label>
@@ -144,7 +144,7 @@ const CreatePost = () => {
               accept=".jpg, .png, .jpeg"              
               id="cover"
               placeholder="image-file"
-              className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white"
               required=""             
             />
             {!cover && errMsg && <p className="text-red-500 text-sm mt-2">{errMsg}</p>}
@@ -152,7 +152,7 @@ const CreatePost = () => {
           <div>
           <label
               htmlFor="genre"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-white"
             >
               Genre
             </label>
@@ -171,7 +171,7 @@ const CreatePost = () => {
            
               id="genre"
               placeholder="Genre of the book"
-              className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white"
               required=""
             />
             <p className="text-red-500 text-sm mt-2">{formState.errors.genre?.message}</p>
@@ -179,7 +179,7 @@ const CreatePost = () => {
           <div>
           <label
               htmlFor="review"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-white"
             >
               Review
             </label>
@@ -198,14 +198,14 @@ const CreatePost = () => {
               name="review"
               id="review"
               placeholder="Write a Review"
-              className="bg-gray-50 border border-gray-300 h-15 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="border h-15 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white"
               required=""
             />
             <p className="text-red-500 text-sm mt-2">{formState.errors.review?.message}</p>
           </div>
 
           <div>
-          <label htmlFor="rating" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+          <label htmlFor="rating" className="block mb-2 text-sm font-medium text-white">
             Rating
           </label>
         
@@ -232,7 +232,7 @@ const CreatePost = () => {
 
           <button
             type="submit"
-            className="w-full text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-white font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600"
+            className="w-full text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-white font-medium rounded-lg text-sm px-5 py-2.5 text-center"
           >
             Create Post
           </button>
