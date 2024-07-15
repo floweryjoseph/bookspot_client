@@ -54,13 +54,13 @@ const Profile = () => {
     <div className='w-full min-h-screen flex flex-col items-center gap-4 bg-gray-950 px-4 md:px-10 pt-20 text-white'>
       <div className='w-full bg-gray-800 my-5 text-orange-600 h-28 flex flex-col items-center justify-evenly'>
         <h1 className='text-3xl font-bold'>{user.user.username}</h1>
-        <p className='text-lg'>
+        <p className='text-lg text-gray-200'>
           <span className='text-xl font-bold mr-2'>{blogs.length}</span> {blogs.length === 1 ? 'Post' : 'Posts'}
         </p>
       </div>
       {blogs.length === 0 ? (
-        <div className='flex flex-col mt-20 text-center'>
-          <p className='text-lg font-bold text-orange-700 mb-4'>No posts yet? Create one...</p>
+        <div className='flex flex-col mt-28 text-center'>
+          <p className='text-lg font-bold text-gray-200 mb-8'>No posts yet? Create one...</p>
           <Link to="/create-post">
             <button className='px-4 py-2 text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-white font-medium rounded-lg text-sm'>
               Create Post

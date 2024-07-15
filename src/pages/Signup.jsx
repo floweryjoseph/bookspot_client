@@ -14,7 +14,8 @@ const SignUp = () => {
   const form = useForm();
   const { register, handleSubmit, formState, getValues } = form;
 
-  const onSubmit = async (data) => {   
+  const onSubmit = async (data) => { 
+    data.email = data.email.toLowerCase();  
     try {
       const res = await axios.post("https://bookspot-server.onrender.com/auth/register", data);
       console.log(res)
