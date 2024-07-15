@@ -37,7 +37,7 @@ function App() {
           <Route path="/create-post" element={<CreatePost />} />
           <Route path="/edit-post/:postId" element={<EditPost />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="*" element={<PageNotFound />} />
+          <Route path="*" element={<Home />} />
         </Routes>
       </>
     );

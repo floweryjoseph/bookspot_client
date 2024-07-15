@@ -32,7 +32,7 @@ const Navbar = () => {
             <Link to="/" className='hover:text-orange-600' onClick={() => setToggleBtn(false)}>Home</Link>
             <Link to="/create-post" className='hover:text-orange-600' onClick={() => setToggleBtn(false)}>Create Post</Link>
             <Link to="/profile" className='hover:text-orange-600' onClick={() => setToggleBtn(false)}>My Posts</Link>
-            <li className='bg-gray-700 w-full font-bold cursor-pointer text-center' onClick={() => { logout(); setToggleBtn(false); }}>
+            <li className='w-full font-bold cursor-pointer text-center' onClick={() => { logout(); setToggleBtn(false); }}>
               Logout
             </li>
           </ul>
@@ -40,7 +40,7 @@ const Navbar = () => {
       )}
 
       <div className='hidden md:flex relative'>
-        <button onClick={() => setToggleBtn(!toggleBtn)} className="text-white bg-orange-900 hover:bg-orange-950 focus:ring-1 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2 text-center inline-flex items-center" type="button">
+        <button onClick={() => setToggleBtn(!toggleBtn)} className="text-white bg-orange-700 hover:bg-orange-800 focus:ring-1 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2 text-center inline-flex items-center" type="button">
           {user?.user?.username}
         </button>
         {toggleBtn && (

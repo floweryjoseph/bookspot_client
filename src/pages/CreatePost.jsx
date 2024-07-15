@@ -56,16 +56,16 @@ const CreatePost = () => {
   };
 
     return (
-      <div className="w-full min-h-screen px-8 md:px-10 flex flex-col md:flex-row  justify-center items-center bg-gray-950 pt-24 md:pt-0 text-white">
+      <div className="w-full min-h-screen px-8 md:px-10 flex flex-col md:flex-row  justify-center items-center bg-gray-950 pt-24 md:pt-0">
       {
         formState.isSubmitting &&
-        <div className="absolute w-full h-screen flex justify-center items-center top-0 left-0 bg-[#00000050]">
+        <div className="absolute w-full h-screen flex justify-center items-center text-white top-0 left-0 bg-[#00000050]">
         <LoaderIcon className="h-28 w-28 animate-spin" />
       </div>
       }
         <div className="w-full md:w-1/2 flex justify-center items-center">
           {!cover ? (
-            <CameraOffIcon className="h-36 w-36 opacity-25" />
+            <CameraOffIcon className="h-36 w-36 opacity-25 text-white" />
           ) : (
             <div>
               <img
@@ -83,7 +83,7 @@ const CreatePost = () => {
           <div>
           <label
               htmlFor="book"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium  text-white"
             >
               Book Name
             </label>
@@ -99,7 +99,7 @@ const CreatePost = () => {
              })}
               type="text"
               id="book"
-              className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+              className="border  sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white"
               placeholder="Book Name"
               required=""              
             />

@@ -5,6 +5,7 @@ import { GoogleLogin } from "@react-oauth/google";
 import { useAuthContext } from "../context/AuthContext";
 import {ToastContainer,toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"
+import { LoaderIcon } from "lucide-react";
 
 const SignUp = () => {
 
@@ -39,6 +40,12 @@ const SignUp = () => {
   return (
     <section className="min-h-screen bg-gray-900">
       <ToastContainer/>
+      {
+        formState.isSubmitting &&
+        <div className="absolute w-full h-screen flex justify-center items-center top-0 left-0 bg-[#00000050]">
+        <LoaderIcon className="h-28 w-28 animate-spin" />
+      </div>
+      }
       <div className="flex flex-col items-center justify-center px-6 py-4 mx-auto h-screen">
         <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md">
           <div className="p-6 space-y-3 md:space-y-4 sm:p-8 ">
