@@ -6,12 +6,14 @@ import { useAuthContext } from "../context/AuthContext";
 import {ToastContainer,toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"
 import { LoaderIcon } from "lucide-react";
+import { useState } from "react";
 
 const LogIn = () => {
   
   const form = useForm();
   const { register, handleSubmit, formState } = form;
   const {login} = useAuthContext()
+  const [googleAuthLoading, setGoogleAuthLoading] = useState(false)
 
   const onSubmit = async (data) => {
  
@@ -27,6 +29,7 @@ const LogIn = () => {
   };
 
   const handleGoogleLogin = async (data) => {
+    setGoogleAuthLoading(true)
     try{
     const res = await axios.post("https://bookspot-server.onrender.com/auth/google-auth", {
       credential: data.credential,
@@ -34,9 +37,11 @@ const LogIn = () => {
   
     if (res.data) {
            login(res.data)
+           setGoogleAuthLoading(false)
     }
   }catch{
     toast("Could not Authenticate with Google")
+    setGoogleAuthLoading(false)
   }
   };
 
@@ -45,11 +50,11 @@ const LogIn = () => {
        
       <ToastContainer/>
       {
-        formState.isSubmitting &&
+        formState.isSubmitting || googleAuthLoading ?(
         <div className="absolute w-full h-screen flex justify-center items-center top-0 left-0 bg-[#00000050]">
         <LoaderIcon className="h-28 w-28 animate-spin" />
       </div>
-      }
+      ):null}
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen ">
         <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
