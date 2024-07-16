@@ -20,11 +20,9 @@ const SignUp = () => {
     data.email = data.email.toLowerCase();  
     try {
       const res = await axios.post("https://bookspot-server.onrender.com/auth/register", data);
-      console.log(res)
-        navigate("/")
+       navigate("/")
   
     } catch (err) {
-      console.log(err);
       toast("Signup Failed")
     }
   };

@@ -8,8 +8,7 @@ const Post = ({ blog, i }) => {
   const [likes, setLikes] = useState(blog.likes);
   const [dislikes, setDislikes] = useState(blog.dislikes);
   const { user } = useAuthContext();
-  console.log(blog)
-
+ 
   const handleLikePost = async () => {
     const body = {
       postId: blog._id,
@@ -20,7 +19,7 @@ const Post = ({ blog, i }) => {
           Authorization: `Bearer ${user.token}`
         }
       });
-      console.log(res.data);
+    
       if (res.data) {
         setLikes(res.data.likes);
         setDislikes(res.data.dislikes);
@@ -40,7 +39,7 @@ const Post = ({ blog, i }) => {
           Authorization: `Bearer ${user.token}`
         }
       });
-      console.log(res);
+      
       if (res.data) {
         setLikes(res.data.likes)
         setDislikes(res.data.dislikes);

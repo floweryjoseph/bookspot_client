@@ -15,8 +15,7 @@ const CreatePost = () => {
   const {user}= useAuthContext()
 
   const onSubmit = async (data) => {
-    console.log(data)
-    if(!cover){
+      if(!cover){
       setErrMsg("Please add an image")
       return;
     }
@@ -29,8 +28,7 @@ const CreatePost = () => {
         "https://api.cloudinary.com/v1_1/djyqjmd1o/image/upload/",
         formData
       );
-      console.log(res.data);
-    
+          
     } catch (err) {
       console.log(err);
     }
@@ -38,8 +36,7 @@ const CreatePost = () => {
     if (res.data) {
      data.cover = res.data.secure_url
      data.rating = rating; 
-     console.log(data)
-
+  
       try {
         const response = await axios.post(
           "https://bookspot-server.onrender.com/user/create-post",data,{

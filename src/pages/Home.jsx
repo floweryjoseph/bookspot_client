@@ -16,7 +16,6 @@ const Home = () => {
           Authorization: `Bearer ${user.token}`,
         },
       });
-      console.log(res.data);
       setBlogs(res.data.posts.reverse());
     } catch (err) {
       console.log(err);

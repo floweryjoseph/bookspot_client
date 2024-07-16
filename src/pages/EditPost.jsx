@@ -62,8 +62,7 @@ const fetchPost = async() => {
         "https://api.cloudinary.com/v1_1/djyqjmd1o/image/upload/",
         formData
       );
-      console.log(res.data);
-    
+          
     } catch (err) {
       console.log(err);
     }
@@ -85,10 +84,8 @@ const fetchPost = async() => {
         
          navigate("/");
       } catch (err) {
-        console.log(err);
-       
-      }
-    
+        console.log(err);       
+      }    
   };
 
 

@@ -23,8 +23,7 @@ const LogIn = () => {
             login(res.data)
              }
     } catch (err) {
-      console.log(err);
-       toast(err.response.data.message)
+      toast(err.response.data.message)
     }
   };
 
