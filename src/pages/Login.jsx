@@ -1,59 +1,62 @@
 import axios from "axios";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { GoogleLogin } from "@react-oauth/google";
 import { useAuthContext } from "../context/AuthContext";
-import {ToastContainer,toast} from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { LoaderIcon } from "lucide-react";
 import { useState } from "react";
 
 const LogIn = () => {
-  
   const form = useForm();
   const { register, handleSubmit, formState } = form;
-  const {login} = useAuthContext()
-  const [googleAuthLoading, setGoogleAuthLoading] = useState(false)
+  const { login } = useAuthContext();
+  const [loading, setLoading] = useState(false);
 
   const onSubmit = async (data) => {
- 
+    setLoading(true);
     try {
-      const res = await axios.post("https://bookspot-server.onrender.com/auth/login", data);
-          if (res.data) {
-            login(res.data)
-             }
+      const res = await axios.post(
+        "https://bookspot-server.onrender.com/auth/login",
+        data
+      );
+      if (res.data) {
+        login(res.data);
+      }
     } catch (err) {
-      toast(err.response.data.message)
+      toast(err.response.data.message);
     }
   };
 
   const handleGoogleLogin = async (data) => {
-    setGoogleAuthLoading(true)
-    try{
-    const res = await axios.post("https://bookspot-server.onrender.com/auth/google-auth", {
-      credential: data.credential,
-    });
-  
-    if (res.data) {
-           login(res.data)
-           setGoogleAuthLoading(false)
+    setLoading(true);
+    try {
+      const res = await axios.post(
+        "https://bookspot-server.onrender.com/auth/google-auth",
+        {
+          credential: data.credential,
+        }
+      );
+
+      if (res.data) {
+        login(res.data);
+        setLoading(false);
+      }
+    } catch {
+      toast("Could not Authenticate with Google");
+      setLoading(false);
     }
-  }catch{
-    toast("Could not Authenticate with Google")
-    setGoogleAuthLoading(false)
-  }
   };
 
   return (
     <section className="bg-gray-900">
-       
-      <ToastContainer/>
-      {
-        formState.isSubmitting || googleAuthLoading ?(
+      <ToastContainer />
+      {loading ? (
         <div className="absolute w-full h-screen flex justify-center items-center top-0 left-0 bg-[#00000050]">
-        <LoaderIcon className="h-28 w-28 animate-spin" />
-      </div>
-      ):null}
+          <LoaderIcon className="h-20 w-20 animate-spin" />
+        </div>
+      ) : null}
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen ">
         <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -83,7 +86,7 @@ const LogIn = () => {
                       message: "Enter a valid email",
                     },
                   })}
-                  className="border sm:text-sm rounded-lg block w-full p-2.5 border-gray-600 placeholder-gray-400 text-gray-600" 
+                  className="border sm:text-sm rounded-lg block w-full p-2.5 border-gray-600 placeholder-gray-400 text-gray-600"
                   placeholder="name@company.com"
                   required=""
                 />
@@ -101,11 +104,12 @@ const LogIn = () => {
                 <input
                   {...register("password", {
                     required: {
-                      value: true,                    
+                      value: true,
                       message: "Please enter your Password",
                     },
                   })}
-                  className="border sm:text-sm rounded-lg block w-full p-2.5 border-gray-600 placeholder-gray-400 text-gray-600"                    required=""
+                  className="border sm:text-sm rounded-lg block w-full p-2.5 border-gray-600 placeholder-gray-400 text-gray-600"
+                  required=""
                   type="password"
                   name="password"
                   id="password"
@@ -127,18 +131,12 @@ const LogIn = () => {
                     />
                   </div>
                   <div className="ml-3 text-sm">
-                    <label
-                      htmlFor="remember"
-                      className="text-gray-500 "
-                    >
+                    <label htmlFor="remember" className="text-gray-500 ">
                       Remember me
                     </label>
                   </div>
                 </div>
-                <a
-                  href="#"
-                  className="text-sm font-medium  hover:underline"
-                >
+                <a href="#" className="text-sm font-medium  hover:underline">
                   Forgot password?
                 </a>
               </div>

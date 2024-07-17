@@ -57,7 +57,7 @@ const CreatePost = () => {
       {
         formState.isSubmitting &&
         <div className="absolute w-full h-screen flex justify-center items-center text-white top-0 left-0 bg-[#00000050]">
-        <LoaderIcon className="h-28 w-28 animate-spin" />
+        <LoaderIcon className="h-20 w-20 animate-spin" />
       </div>
       }
         <div className="w-full md:w-1/2 flex justify-center items-center">

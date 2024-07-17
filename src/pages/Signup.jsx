@@ -14,39 +14,46 @@ const SignUp = () => {
  const {login} = useAuthContext()
   const form = useForm();
   const { register, handleSubmit, formState, getValues } = form;
-  const [googleAuthLoading, setGoogleAuthLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const onSubmit = async (data) => { 
     data.email = data.email.toLowerCase();  
+    setLoading(true)
     try {
       const res = await axios.post("https://bookspot-server.onrender.com/auth/register", data);
-       navigate("/")
-  
+       navigate("/")  
     } catch (err) {
       toast("Signup Failed")
     }
   };
 
   const handleGoogleLogin = async (data) =>{
-    setGoogleAuthLoading(true);
+    setLoading(true);
     try{
     const res =   await axios.post("https://bookspot-server.onrender.com/auth/google-auth", {credential: data.credential})
     if(res.data){
         login(res.data) 
-        setGoogleAuthLoading(false);     
+        setLoading(false);     
     }
   }catch{
     toast("Could not Authenticate with Google")
-    setGoogleAuthLoading(false);
+    setLoading(false);
   }
   }
 
   return (
     <section className="min-h-screen bg-gray-900">
-      <ToastContainer/>
+      {/* <ToastContainer/>
       {formState.isSubmitting || googleAuthLoading ? (
         <div className="absolute w-full h-screen flex justify-center items-center top-0 left-0 bg-[#00000050]">
           <LoaderIcon className="h-28 w-28 animate-spin" />
+        </div>
+      ) : null} */}
+
+<ToastContainer/>
+    {loading ? (
+        <div className="absolute w-full h-screen flex justify-center items-center top-0 left-0 bg-[#00000050]">
+          <LoaderIcon className="h-20 w-20 animate-spin" />
         </div>
       ) : null}
       <div className="flex flex-col items-center justify-center px-6 py-4 mx-auto h-screen">

@@ -3,14 +3,14 @@ import Post from "../components/Post";
 import axios from "axios";
 import { useAuthContext } from "../context/AuthContext";
 import banner from "../assets/books/banner.jpg"
+import { LoaderIcon } from "lucide-react";
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
-
   const { user } = useAuthContext();
 
   const fetchBlogs = async () => {
-    try {
+       try {
       const res = await axios.get("https://bookspot-server.onrender.com/user/get-posts", {
         headers: {
           Authorization: `Bearer ${user.token}`,

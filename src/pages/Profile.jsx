@@ -45,7 +45,7 @@ const Profile = () => {
   if (loading) {
     return (
       <div className="absolute w-full h-screen flex justify-center items-center top-0 left-0 bg-gray-950">
-        <LoaderIcon className="h-28 w-28 text-gray-400 animate-spin" />
+        <LoaderIcon className="h-20 w-20 text-gray-400 animate-spin" />
       </div>
     );
   }
